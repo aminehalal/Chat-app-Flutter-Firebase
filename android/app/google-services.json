@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "830778716587",
+    "project_id": "aminehalal-message-us",
+    "storage_bucket": "aminehalal-message-us.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:830778716587:android:aaa77f941f02985fca22ee",
+        "android_client_info": {
+          "package_name": "com.aminehalal.chat_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUIt5ZTIEOmayTAnWxMQH9uvcT4qUTuoo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
