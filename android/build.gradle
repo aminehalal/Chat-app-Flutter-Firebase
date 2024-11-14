@@ -3,6 +3,11 @@ allprojects {
         google()
         mavenCentral()
     }
+    dependencies {
+        classpath 'com.google.gms:google-services:4.3.13' // Add if missing
+        classpath 'com.google.firebase:firebase-plugins:2.1.1'
+        classpath 'com.android.tools.build:gradle:7.1.2' // Add if missing
+    }
 }
 
 rootProject.buildDir = "../build"
@@ -16,3 +21,5 @@ subprojects {
 tasks.register("clean", Delete) {
     delete rootProject.buildDir
 }
+
+

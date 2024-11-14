@@ -1,6 +1,7 @@
-import 'package:chat_app/widgets/myButton.dart';
-import 'package:chat_app/widgets/myInputText.dart';
+import 'package:chat_app/widgets/my_button.dart';
+import 'package:chat_app/widgets/my_input_text.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -11,7 +12,10 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> {
   // Optional: you can create some controller variables to handle text input if needed
-  final TextEditingController _emailController = TextEditingController();
+  final _auth = FirebaseAuth.instance;
+
+  late String email;
+  late String passWord;
 
   @override
   Widget build(BuildContext context) {
@@ -40,22 +44,39 @@ class _RegisterPageState extends State<RegisterPage> {
 
             // Adjusted the width of the TextField
             InputText(
+              textInputType: TextInputType.emailAddress,
               screenWidth: screenWidth,
               textInput: "Enter your email",
               icon: Icons.email,
               onChangeInput: (value) {
-                // You can handle the input change here
+                email = value;
               },
+              obscureTextBool: false,
             ),
             InputText(
+              textInputType: TextInputType.text,
               screenWidth: screenWidth,
               textInput: "Enter your password",
               icon: Icons.password,
               onChangeInput: (value) {
-                // You can handle the input change here
+                passWord = value;
               },
+              obscureTextBool: true,
             ),
-            MyButton(colorButton: Colors.blue[400], textButton: 'Register', onPressedButton: (){}, screenWidth: screenWidth)
+            MyButton(
+                colorButton: Colors.blue[400],
+                textButton: 'Register',
+                onPressedButton: () async {
+                  try {
+                    final newUser = await _auth.createUserWithEmailAndPassword(
+                        email: email, password: passWord);
+                    Navigator.pushNamed(context, 'chat');
+                    print(newUser);
+                  } catch (e) {
+                    print(e);
+                  }
+                },
+                screenWidth: screenWidth)
           ],
         ),
       ),

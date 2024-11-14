@@ -1,5 +1,5 @@
-import 'package:chat_app/widgets/myButton.dart';
-import 'package:chat_app/widgets/myInputText.dart';
+import 'package:chat_app/widgets/my_button.dart';
+import 'package:chat_app/widgets/my_input_text.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -11,7 +11,6 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   // Optional: you can create some controller variables to handle text input if needed
-  final TextEditingController _emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -40,20 +39,24 @@ class _LoginPageState extends State<LoginPage> {
 
             // Adjusted the width of the TextField
             InputText(
+              textInputType: TextInputType.emailAddress,
               screenWidth: screenWidth,
               textInput: "Enter your email",
               icon: Icons.email,
               onChangeInput: (value) {
                 // You can handle the input change here
               },
+              obscureTextBool: false,
             ),
             InputText(
+              textInputType: TextInputType.text,
               screenWidth: screenWidth,
               textInput: "Enter your password",
               icon: Icons.password,
               onChangeInput: (value) {
                 // You can handle the input change here
               },
+              obscureTextBool: true,
             ),
             MyButton(colorButton: Colors.blue[400], textButton: 'Login', onPressedButton: (){}, screenWidth: screenWidth)
           ],

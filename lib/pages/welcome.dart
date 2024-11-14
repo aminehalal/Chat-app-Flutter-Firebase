@@ -1,5 +1,6 @@
-import 'package:chat_app/widgets/myButton.dart';
+import 'package:chat_app/widgets/my_button.dart';
 import 'package:flutter/material.dart';
+
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({super.key});
